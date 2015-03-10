@@ -6,7 +6,21 @@
 					<ul class="nav pull-right">
 						<li><%= link_to "Página principal", root_path %></li>
 						<li><%= link_to "Ayuda", help_path %></li>
-						<li><%= link_to "Sign in", '#' %></li>
+						<% if user_signed_in? %>
+							<li id="fat-menu" class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Cuenta <b class="caret"></b>
+								<ul class="dropdown-menu">
+									<li><%= link_to "Perfil", current_user %></li>
+									<li><%= link_to "Opciones", '#' %></li>
+									<li class="divider"></li>
+									<li>
+										<%= link_to "Desloguear", destroy_user_session_path, method: "delete" %>
+									</li>
+								</ul>
+							<% else %>
+								<li><%= link_to "Sign in", new_user_session_path %></li>
+							<% end %>
 					</ul>
 				</nav>
 			</div>

@@ -1,8 +1,12 @@
-<div class="center hero-unit">
-	<h1>Bienvenidos a Enma</h1>
-	<h2>
-		Esta es la página principal de 
-		 <a href="https://ghostlightning.files.wordpress.com/2009/04/dragon-ball-kai-04-lord-enma-son-goku-kami.jpg">Enma</a>
-	</h2>
-	<%= link_to "Logueate!", '#', class: "btn btn-large btn-primary" %>
-</div>
+<% if user_signed_in? %>
+  <%= current_user.name %>
+<% else %>
+  <div class="center hero-unit">
+  	<h1>Bienvenidos a Enma</h1>
+  	<h2>
+  		Esta es la página principal de
+  		 <a href="https://ghostlightning.files.wordpress.com/2009/04/dragon-ball-kai-04-lord-enma-son-goku-kami.jpg">Enma</a>
+  	</h2>
+  	<%= link_to "Registrate!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
