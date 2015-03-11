@@ -8,6 +8,8 @@ gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'protected_attributes'
+gem 'omniauth'
+gem 'omniauth-github'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -49,6 +51,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.2.1'
+  gem 'dotenv-rails'
 end
 
 group :test do

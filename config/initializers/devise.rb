@@ -6,10 +6,15 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '55c6cbeb2a76093f8618d8ae9ddc8609c20b808b5c30109cb9d25b887bdaf374159be1810208bef4df1eae179d38b3f97263617ff1872184439b5f3ad934ffef'
 
+  config.omniauth :github, ENV["OMNIAUTH_PROVIDER_KEY"], ENV["OMNIAUTH_PROVIDER_SECRET"]
+
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+
+
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
