@@ -28,4 +28,4 @@ config/secrets.yml
 /log/*
 !/log/.keep
 /tmp
-./*.env
+./*.env.development
