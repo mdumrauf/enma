@@ -4,13 +4,28 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label "Nombre y Apellido" %><br />
-    <%= f.text_field :name, disabled: true %>
+    <%= f.label "Curso" %><br />
+    <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Grupo" %><br />
+    <%= f.collection_select :group_id, Group.ordered_by_name, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Nombre" %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Apellido" %><br />
+    <%= f.text_field :lastname %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, disabled: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
