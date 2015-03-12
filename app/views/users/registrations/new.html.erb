@@ -5,12 +5,12 @@
 
   <div class="field">
     <%= f.label "Curso" %><br />
-    <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code %>
+    <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code, {}, {id: "course_select"}%>
   </div>
 
   <div class="field">
     <%= f.label "Grupo" %><br />
-    <%= f.collection_select :group_id, Group.ordered_by_name, :id, :name %>
+    <%= f.collection_select :group_id, [], :id, :name, {}, {id: "group_select"} %>
   </div>
 
   <div class="field">
@@ -37,5 +37,9 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+<div id="groups-container">
+  <%= content_tag :div, "", data: { groups: Group.ordered_by_name.map{|g| {course_id: g.course_id, values: [g.name, g.id]}}.to_json }%>
+</div>
 
 <%= render "users/shared/links" %>
