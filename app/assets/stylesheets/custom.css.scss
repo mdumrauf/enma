@@ -145,3 +145,34 @@ input, textarea, select, .uneditable-input {
 	height: auto;
 	margin-bottom: 15px;
 }
+
+#finish_registration{
+	input[type='text'], input[type='password'], input[type='email'], select, .chosen-container{
+	  box-sizing: border-box;
+	  width: 80%;
+	  margin: 10px auto;
+	  height: 30px;
+	  font-size: 15px;
+	  border-radius: 3px;
+	}
+	.chosen-container{
+		.chosen-single{
+			border-radius: 3px;
+			border: 1px solid #bbb;
+			font-size: 15px;
+			box-shadow: none;
+			background: white;
+			height: 30px;
+			line-height: 27px;
+			div{
+				b{
+					position: relative;
+					top: 3px;
+				}
+			}
+		}
+		.chosen-drop{
+			top: 25px;
+		}
+	}
+}
