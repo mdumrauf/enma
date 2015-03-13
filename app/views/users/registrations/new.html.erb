@@ -5,33 +5,27 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label "Curso" %><br />
-      <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code, {}, {id: "course_select"}%>
+      <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
     </div>
 
     <div class="field">
-      <%= f.label "Grupo" %><br />
-      <%= f.collection_select :group_id, [], :id, :name, {}, {id: "group_select"} %>
+      <%= f.collection_select :group_id, [], :id, :name, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
     </div>
 
     <div class="field">
-      <%= f.label "Nombre" %><br />
-      <%= f.text_field :name %>
+      <%= f.text_field :name, placeholder: "Nombre" %>
     </div>
 
     <div class="field">
-      <%= f.label "Apellido" %><br />
-      <%= f.text_field :lastname %>
+      <%= f.text_field :lastname, placeholder: "Apellido" %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email %>
+      <%= f.email_field :email, placeholder: "Email" %>
     </div>
 
     <div class="field">
-      <%= f.label "Ingresá tu nro de Legajo" %><br />
-      <%= f.text_field :file_number %>
+      <%= f.text_field :file_number, placeholder: "Legajo" %>
     </div>
 
     <div class="actions">
