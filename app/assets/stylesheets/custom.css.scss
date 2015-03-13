@@ -173,6 +173,11 @@ input, textarea, select, .uneditable-input {
 		}
 		.chosen-drop{
 			top: 25px;
+			.chosen-search{
+				input{
+					width: 100%!important;
+				}
+			}
 		}
 	}
 }
