@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require underscore
+//= require chosen-jquery
 //= require rails_views/user_registration/new
 //= require_tree .
