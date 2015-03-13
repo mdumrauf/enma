@@ -1,45 +1,47 @@
-<h2>Sign up</h2>
+<div id="finish_registration">
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label "Curso" %><br />
-    <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code, {}, {id: "course_select"}%>
+    <div class="field">
+      <%= f.label "Curso" %><br />
+      <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code, {}, {id: "course_select"}%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Grupo" %><br />
+      <%= f.collection_select :group_id, [], :id, :name, {}, {id: "group_select"} %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Nombre" %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Apellido" %><br />
+      <%= f.text_field :lastname %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Ingresá tu nro de Legajo" %><br />
+      <%= f.text_field :file_number %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+
+  <div id="groups-container">
+    <%= content_tag :div, "", data: { groups: Group.ordered_by_name.map{|g| {course_id: g.course_id, values: [g.name, g.id]}}.to_json }%>
   </div>
 
-  <div class="field">
-    <%= f.label "Grupo" %><br />
-    <%= f.collection_select :group_id, [], :id, :name, {}, {id: "group_select"} %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Nombre" %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Apellido" %><br />
-    <%= f.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Ingresá tu nro de Legajo" %><br />
-    <%= f.text_field :file_number %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<div id="groups-container">
-  <%= content_tag :div, "", data: { groups: Group.ordered_by_name.map{|g| {course_id: g.course_id, values: [g.name, g.id]}}.to_json }%>
+  <%= render "users/shared/links" %>
 </div>
-
-<%= render "users/shared/links" %>
