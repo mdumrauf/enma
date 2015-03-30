@@ -1,47 +1,41 @@
 <div id="finish_registration">
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <h2>Sign up</h2>
+  <h2>Sign up</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-        <div class="field">
-          <%= f.collection_select :course_id, Course.ordered_by_id, :id, :description, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
-        </div>
-
-        <div class="field">
-          <%= f.collection_select :group_id, Group.ordered_by_id, :id, :code, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :nickname, placeholder: "Github user" %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :name, placeholder: "Nombre" %>
-        </div>
-
-        <div class="field">
-          <%= f.email_field :email, placeholder: "Email" %>
-        </div>
-
-        <div class="field">
-          <%= f.text_field :file_number, placeholder: "Legajo" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
-      <% end %>
-
-      <div id="groups-container">
-        <%= content_tag :div, "", data: { groups: Group.ordered_by_id.map{|g| {course_id: g.course_id, values: [g.code, g.id]}}.to_json }%>
-      </div>
-
-      <%= render "users/shared/links" %>
+    <div class="field">
+      <%= f.collection_select :course_id, Course.ordered_by_id, :id, :description, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
     </div>
-    <div class="col-md-3"></div>
+
+    <div class="field">
+      <%= f.collection_select :group_id, Group.ordered_by_id, :id, :code, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :nickname, placeholder: "Github user" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :name, placeholder: "Nombre" %>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, placeholder: "Email" %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :file_number, placeholder: "Legajo" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+
+  <div id="groups-container">
+    <%= content_tag :div, "", data: { groups: Group.ordered_by_name.map{|g| {course_id: g.course_id, values: [g.name, g.id]}}.to_json }%>
   </div>
+
+  <%= render "users/shared/links" %>
 </div>
