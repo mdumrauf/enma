@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20150312012026) do
 
   create_table "courses", force: :cascade do |t|
     t.string "code"
+    t.string "description"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string  "name"
+    t.string  "code"
     t.integer "course_id"
   end
 

@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  attr_accessible :course, :name
+  attr_accessible :course, :code
 
   #
   # Relationships
@@ -11,12 +11,12 @@ class Group < ActiveRecord::Base
   # Validations
   #
   validates :course, presence: true
-  validates :name, presence: true
+  validates :code, presence: true
 
   #
   #Class methods
   #
-  def self.ordered_id
+  def self.ordered_by_id
     Group.order(:id)
   end
 end
