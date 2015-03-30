@@ -1,0 +1,27 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: no puede estar en blanco
+            file_number:
+              blank:  no puede estar en blanco
+            lastname:
+              blank:  no puede estar en blanco
+            course:
+              blank:  no puede estar en blanco
+            group:
+              blank: no puede estar en blanco
+    attributes:
+      user:
+        name: Nombre
+        lastname: Apellido
+        file_number: Legajo
+        course: Curso
+        group: Grupo
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
