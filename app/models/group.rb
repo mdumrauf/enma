@@ -1,4 +1,6 @@
 class Group < ActiveRecord::Base
+  attr_accessible :course, :name
+
   #
   # Relationships
   #
