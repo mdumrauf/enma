@@ -147,9 +147,11 @@ input, textarea, select, .uneditable-input {
 }
 
 #finish_registration{
+	width: 80%;
+	margin: 0 auto;
 	input[type='text'], input[type='password'], input[type='email'], select, .chosen-container{
 	  box-sizing: border-box;
-	  width: 80%;
+	  width: 100%;
 	  margin: 10px auto;
 	  height: 30px;
 	  font-size: 15px;
