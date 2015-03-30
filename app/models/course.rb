@@ -16,7 +16,7 @@ class Course < ActiveRecord::Base
   #
   # Class methods
   #
-  def self.ordered_by_code
-    Course.order(:code)
+  def self.ordered_by_id
+    Course.order(:id)
   end
 end

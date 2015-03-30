@@ -8,11 +8,11 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.collection_select :course_id, Course.ordered_by_code, :id, :code, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
+          <%= f.collection_select :course_id, Course.ordered_by_id, :id, :code, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
         </div>
 
         <div class="field">
-          <%= f.collection_select :group_id, [], :id, :name, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
+          <%= f.collection_select :group_id, Group.ordered_by_id, :id, :name, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
         </div>
 
         <div class="field">
