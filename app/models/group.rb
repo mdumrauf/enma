@@ -16,7 +16,7 @@ class Group < ActiveRecord::Base
   #
   #Class methods
   #
-  def self.ordered_by_name
-    Group.order(:name)
+  def self.ordered_id
+    Group.order(:id)
   end
 end
