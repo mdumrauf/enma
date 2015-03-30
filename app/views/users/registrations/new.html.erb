@@ -1,0 +1,26 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label "Nombre y Apellido" %><br />
+    <%= f.text_field :name, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Ingresá tu nro de Legajo" %><br />
+    <%= f.text_field :file_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
