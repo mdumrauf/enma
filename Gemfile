@@ -42,6 +42,7 @@ gem 'sprockets', '2.11.0'
 
 #Forms - cool selects
 gem 'chosen-rails'
+gem "github_api", "~> 0.11.3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

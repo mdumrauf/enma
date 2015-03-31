@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github]
 
-  attr_accessible :name, :file_number, :email, :provider, :uid
+  attr_accessible :nickname, :name, :file_number, :email, :provider, :uid, :group_id, :course_id
 
 
+  validates :nickname, presence: true
   validates :name, presence: true
-  validates :lastname, presence: true
   validates :file_number, presence: true, uniqueness: true
   validates :course, presence: true
   validates :group, presence: true
@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
   end
 
   def self.new_with_session(params, session)
-
     super.tap do |user|
-      if data = session["devise.github_data"] #&& session["devise.github_data"]["extra"]["raw_info"]
+      if data = session["devise.github_data"]
+        user.nickname = data["info"]["nickname"]
         user.email = data["info"]["email"] if user.email.blank?
         user.name = data["info"]["name"] if user.name.blank?
         user.password = data["password"] if user.password.blank?
@@ -41,7 +41,6 @@ class User < ActiveRecord::Base
         user.uid = data["uid"] if user.uid.blank?
         user.course_id = params["course_id"]
         user.group_id = params["group_id"]
-        user.lastname = params["lastname"]
         user.file_number = params["file_number"]
       end
     end
