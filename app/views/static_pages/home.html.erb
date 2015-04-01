@@ -2,10 +2,8 @@
   <%= current_user.name %>
 <% else %>
   <div class="center hero-unit">
-  	<h1>Bienvenidos a Enma</h1>
   	<h2>
-  		Esta es la página principal de
-  		 <a href="https://ghostlightning.files.wordpress.com/2009/04/dragon-ball-kai-04-lord-enma-son-goku-kami.jpg">Enma</a>
+  		Registrate con 3 clicks a<br>Diseño de Sistemas
   	</h2>
   	<%= link_to "Ingresá con GitHub!", user_omniauth_authorize_path(:github), class: "btn btn-large btn-primary" %>
   </div>

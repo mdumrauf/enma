@@ -12,10 +12,9 @@
 									Cuenta <b class="caret"></b>
 								<ul class="dropdown-menu">
 									<li><%= link_to "Perfil", current_user %></li>
-									<li><%= link_to "Opciones", '#' %></li>
 									<li class="divider"></li>
 									<li>
-										<%= link_to "Desloguear", destroy_user_session_path, method: "delete" %>
+										<%= link_to "Cerrar sesión", destroy_user_session_path, method: "delete" %>
 									</li>
 								</ul>
 							<% end %>
