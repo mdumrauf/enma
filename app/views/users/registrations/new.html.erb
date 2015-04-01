@@ -1,5 +1,5 @@
 <div id="finish_registration">
-  <h2>Sign up</h2>
+  <h2>Registro</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -12,11 +12,11 @@
       <%= f.collection_select :group_id, Group.ordered_by_id, :id, :code, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
     </div>
 
-    <div class="field">
+    <div class="field form-control-static">
       <%= f.text_field :nickname, placeholder: "Github user" %>
     </div>
 
-    <div class="field">
+    <div class="field form-control-static">
       <%= f.text_field :name, placeholder: "Nombre" %>
     </div>
 
@@ -28,8 +28,8 @@
       <%= f.text_field :file_number, placeholder: "Legajo" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
+    <div class="actions center">
+      <%= f.submit "Registrarme" %>
     </div>
   <% end %>
 
