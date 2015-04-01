@@ -12,20 +12,20 @@
       <%= f.collection_select :group_id, Group.ordered_by_id, :id, :code, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
     </div>
 
-    <div class="field form-control-static">
-      <%= f.text_field :nickname, placeholder: "Github user" %>
-    </div>
-
-    <div class="field form-control-static">
-      <%= f.text_field :name, placeholder: "Nombre" %>
+    <div class="field">
+      <%= f.text_field :nickname, placeholder: "Github user", disabled: 'disabled' %>
     </div>
 
     <div class="field">
-      <%= f.email_field :email, placeholder: "Email" %>
+      <%= f.text_field :name, :required => true, placeholder: "Nombre" %>
     </div>
 
     <div class="field">
-      <%= f.text_field :file_number, placeholder: "Legajo" %>
+      <%= f.email_field :email, :required => true, placeholder: "Email" %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :file_number, :required => true, placeholder: "Legajo" %>
     </div>
 
     <div class="actions center">
