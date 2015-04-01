@@ -22,6 +22,26 @@ class User < ActiveRecord::Base
   belongs_to :course
   belongs_to :group
 
+
+  def self.add_user(team_name, user)
+    @client = Octokit::Client.new(:login => "xxxxxxxxxx", :password => "xxxxxxxxxxxxx", :org => "dds-utn")
+    @client.login
+    @teams  = @client.organization_teams "dds-utn", :per_page => 100
+
+    team = @teams.find { |e| e['name'] == team_name }
+    if team != nil
+      begin
+        @client.add_team_membership(team.id, user) unless user.strip.length == 0
+      rescue Exception => e
+        $logger.error e.message
+        $logger.error e.backtrace.inspect
+      end
+    else
+      logger.error "Team: #{team_name} is invalid"
+    end
+  end
+
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.password = Devise.friendly_token[0,20]
@@ -42,6 +62,17 @@ class User < ActiveRecord::Base
         user.course_id = params["course_id"]
         user.group_id = params["group_id"]
         user.file_number = params["file_number"]
+
+        if user.group_id? && user.course_id?
+
+          group_code = Group.find_by(id: user.group_id).code
+          course_code = Course.find_by(id: user.course_id).code
+          team_name = "2015-#{course_code}-group-#{group_code}"
+
+          add_user(team_name, user.nickname)
+
+        end
+
       end
     end
   end
