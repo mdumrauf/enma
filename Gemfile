@@ -44,6 +44,7 @@ gem 'sprockets', '2.11.0'
 #Forms - cool selects
 gem 'chosen-rails'
 gem "octokit", "~> 3.8"
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +57,6 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.2.1'
-  gem 'dotenv-rails'
 end
 
 group :test do
