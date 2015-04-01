@@ -1,10 +1,15 @@
 <% if user_signed_in? %>
   <%= current_user.name %>
+  <h3>Próximamente!</h3>
 <% else %>
   <div class="center hero-unit">
   	<h2>
   		Registrate con 3 clicks a<br>Diseño de Sistemas
   	</h2>
   	<%= link_to "Ingresá con GitHub!", user_omniauth_authorize_path(:github), class: "btn btn-large btn-primary" %>
+    <br><br><br>
+    <blockquote class="blockquote-reverse">
+      <a href="/help"><small><u><i>Tengo miedo. Sálvame Kamisama!</i></u> | Krilin <cite title="Sagradas Escrituras">21:42</cite></small></a>
+    </blockquote>
   </div>
 <% end %>
