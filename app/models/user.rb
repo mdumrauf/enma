@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github]
 
-  attr_accessible :name, :file_number, :email, :provider, :uid
+  attr_accessible :name, :file_number, :email, :provider, :uid, :group_id, :course_id
 
 
   validates :name, presence: true
