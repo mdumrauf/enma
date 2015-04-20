@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
 
   validates :nickname, presence: true
   validates :name, presence: true
-  validates :lastname, presence: true
   validates :file_number, presence: true, uniqueness: true
   validates :course, presence: true
   validates :group, presence: true
@@ -43,7 +42,6 @@ class User < ActiveRecord::Base
         user.uid = data["uid"] if user.uid.blank?
         user.course_id = params["course_id"]
         user.group_id = params["group_id"]
-        user.lastname = params["lastname"]
         user.file_number = params["file_number"]
       end
     end
