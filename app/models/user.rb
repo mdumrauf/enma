@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github]
 
-  attr_accessible :name, :file_number, :email, :provider, :uid, :group_id, :course_id
+  attr_accessible :nickname, :name, :file_number, :email, :provider, :uid, :group_id, :course_id
 
 
+  validates :nickname, presence: true
   validates :name, presence: true
   validates :lastname, presence: true
   validates :file_number, presence: true, uniqueness: true
@@ -35,6 +36,7 @@ class User < ActiveRecord::Base
       if data = session["devise.github_data"] #&& session["devise.github_data"]["extra"]["raw_info"]
         user.email = data["info"]["email"] if user.email.blank?
         user.name = data["info"]["name"] if user.name.blank?
+        user.nickname = data["info"]["nickname"]
         user.password = data["password"] if user.password.blank?
         user.password_confirmation = user.password
         user.provider = data["provider"] if user.provider.blank?
