@@ -12,7 +12,7 @@
         </div>
 
         <div class="field">
-          <%= f.collection_select :group_id, Group.ordered_by_id, :id, :name, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
+          <%= f.collection_select :group_id, Group.ordered_by_id, :id, :code, {:include_blank => true}, {id: "group_select", data: {placeholder: "Selecciona un grupo"}} %>
         </div>
 
         <div class="field">
@@ -37,7 +37,7 @@
       <% end %>
 
       <div id="groups-container">
-        <%= content_tag :div, "", data: { groups: Group.ordered_by_name.map{|g| {course_id: g.course_id, values: [g.name, g.id]}}.to_json }%>
+        <%= content_tag :div, "", data: { groups: Group.ordered_by_id.map{|g| {course_id: g.course_id, values: [g.code, g.id]}}.to_json }%>
       </div>
 
       <%= render "users/shared/links" %>

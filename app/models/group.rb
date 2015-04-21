@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  attr_accessible :course, :name
+  attr_accessible :course, :code
 
   #
   # Relationships
@@ -11,7 +11,7 @@ class Group < ActiveRecord::Base
   # Validations
   #
   validates :course, presence: true
-  validates :name, presence: true
+  validates :code, presence: true
 
   #
   #Class methods
