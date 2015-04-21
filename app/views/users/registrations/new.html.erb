@@ -8,7 +8,7 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.collection_select :course_id, Course.ordered_by_id, :id, :code, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
+          <%= f.collection_select :course_id, Course.ordered_by_id, :id, :description, {:include_blank => true}, {id: "course_select", data: {placeholder: "Selecciona un curso"}}%>
         </div>
 
         <div class="field">

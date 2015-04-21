@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :code
+  attr_accessible :code, :description
 
   #
   # Relationships
@@ -12,6 +12,7 @@ class Course < ActiveRecord::Base
   # Validations
   #
   validates :code, presence: true
+  validates :description, presence: true
 
   #
   # Class methods
